@@ -1,14 +1,13 @@
 set( TARGET_NAME bfgl )
 
 include_directories( BEFORE
+                     ${CMAKE_CURRENT_SOURCE_DIR}/sources
                      ${CMAKE_CURRENT_SOURCE_DIR} 
 					)
 
 
 file( GLOB_RECURSE HEADER_FILES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.h *.hpp )
 file( GLOB_RECURSE SOURCE_FILES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.c *.cpp *.cc )
-
-add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/kernels")
 
 add_library(${TARGET_NAME} SHARED ${SOURCE_FILES})
 

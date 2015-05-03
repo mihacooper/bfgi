@@ -1,10 +1,10 @@
-#include "bfg_stack.h"
+#include "bfg_internal.h"
 
 static bfg_status cmdPrintNumber(bfg_context context, void* mem, bfg_size size)
 {
     bfg_int number;
     bfg_data_t data = {BFG_DATA_SIMPLE, &number, sizeof(number)};
-    bfg_status status = bfgPopStack(&((bfg_context_t*)context)->stack, &data);
+    bfg_status status = bfgPopStack((bfg_stack)&((bfg_context_t*)context)->stack, &data);
     if(status != BFG_SUCCESS)
     {
         return status;
@@ -29,7 +29,7 @@ static bfg_status cmdPrintChar(bfg_context context, void* mem, bfg_size size)
 {
     bfg_int number;
     bfg_data_t data = {BFG_DATA_SIMPLE, &number, sizeof(number)};
-    bfg_status status = bfgPopStack(&((bfg_context_t*)context)->stack, &data);
+    bfg_status status = bfgPopStack((bfg_stack)&((bfg_context_t*)context)->stack, &data);
     if(status != BFG_SUCCESS)
     {
         return status;

@@ -1,6 +1,4 @@
-#include "bfg_parser.h"
-#include "bfg_stack.h"
-#include <math.h>
+#include "../bfg_internal.h"
 
 typedef struct
 {
@@ -30,7 +28,7 @@ typedef struct
     bfg_int  number;
 }LongNumber;
 
-static bfg_kernel_t SubParser(bfg_context context, bfg_char ch_cmd);
+static bfg_kernel SubParser(bfg_context context, bfg_char ch_cmd);
 
 static bfg_status cmdNumber(bfg_context context, void* data, bfg_size size)
 {
@@ -50,13 +48,13 @@ static bfg_status cmdNumber(bfg_context context, void* data, bfg_size size)
     return BFG_SUCCESS;
 }
 
-static bfg_kernel_t SubParser(bfg_context context, bfg_char ch_cmd)
+static bfg_kernel SubParser(bfg_context context, bfg_char ch_cmd)
 {
-    bfg_kernel_t kernel = bfgParseCommand(context, ch_cmd);
-    if(kernel.func != cmdNumber)
+    bfg_kernel_t* kernel = (bfg_kernel_t*)(((bfg_context_t*)context)->parser.def_parse_func(context, ch_cmd));
+    if(kernel->func != cmdNumber)
     {
         bfg_data_t data;
-        bfg_kernel_t* num_kernel = bfgQueryKernelData(context, map_char_to_num[0].ch);
+        bfg_kernel_t* num_kernel = (bfg_kernel_t*)bfgQueryKernelData(context, map_char_to_num[0].ch);
         LongNumber* lnum = ((LongNumber*)num_kernel->mem);
         data.type = BFG_DATA_SIMPLE;
         data.mem  = &lnum->number;
@@ -64,9 +62,9 @@ static bfg_kernel_t SubParser(bfg_context context, bfg_char ch_cmd)
         bfgPushStack(&((bfg_context_t*)context)->stack, &data);
         lnum->degree = 0;
         lnum->number = 0;
-        ((bfg_context_t*)context)->parser.parse_func = bfgParseCommand;
+        ((bfg_context_t*)context)->parser.parse_func = ((bfg_context_t*)context)->parser.def_parse_func;
     }
-    return kernel;
+    return (bfg_kernel)kernel;
 }
 
 static bfg_status MemInit(void* data, bfg_size size)

@@ -1,4 +1,4 @@
-#include "bfg_parser.h"
+#include "bfg_internal.h"
 
 extern bfg_kernel_desc_t move_up_desc;
 extern bfg_kernel_desc_t move_down_desc;
@@ -23,6 +23,12 @@ static bfg_kernel_desc_t* target_kernels[] =
     &print_num_desc,
     &print_char_desc,
 };
+
+bfg_kernel bfgParseCommand(bfg_context context, bfg_char ch_cmd)
+{
+    bfg_kernel_t* kernel = &((bfg_context_t*)context)->parser.kernels[ch_cmd];
+    return (bfg_kernel)kernel;
+}
 
 bfg_status bfgInitParser(bfg_context context)
 {
@@ -54,19 +60,14 @@ bfg_status bfgInitParser(bfg_context context)
         }
     }
     ((bfg_context_t*)context)->parser.parse_func = (bfg_parse_func_t)&bfgParseCommand;
+    ((bfg_context_t*)context)->parser.def_parse_func = (bfg_parse_func_t)&bfgParseCommand;
     return BFG_SUCCESS;
 }
 
-bfg_kernel_t bfgParseCommand(bfg_context context, bfg_char ch_cmd)
-{
-    bfg_kernel_t kernel = ((bfg_context_t*)context)->parser.kernels[ch_cmd];
-    return kernel;
-}
-
-bfg_kernel_t* bfgQueryKernelData(bfg_context context, bfg_char ch_cmd)
+bfg_kernel bfgQueryKernelData(bfg_context context, bfg_char ch_cmd)
 {
     bfg_kernel_t* kernel = &((bfg_context_t*)context)->parser.kernels[ch_cmd];
-    return kernel;
+    return (bfg_kernel)kernel;
 }
 
 bfg_status bfgReleaseParser(bfg_context context)

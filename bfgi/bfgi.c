@@ -1,4 +1,7 @@
 #include "bfgl.h"
+#include "bfgl_api.h"
+
+#include <stdlib.h>
 
 #define cols 7
 #define rows 2
@@ -8,7 +11,7 @@ int main(int argc, char* argv[])
     bfg_context context = bfgCreateContext();
     bfg_char** code = (bfg_char**)malloc(sizeof(bfg_char*) * 2);
     int i,j;
-    for(i = 0; i < 2;i++)
+    for(i = 0; i < 2; i++)
         code[i] = (bfg_char*)malloc(sizeof(bfg_char) * 4);
     code[0][0] = '>';
     code[0][1] = '1';

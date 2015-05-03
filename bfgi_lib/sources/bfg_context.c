@@ -1,7 +1,4 @@
-#include "bfg_context.h"
-#include "bfg_stack.h"
-#include "bfg_parser.h"
-#include <stdlib.h>
+#include "bfg_internal.h"
 
 bfg_context bfgCreateContext()
 {
@@ -12,7 +9,7 @@ bfg_context bfgCreateContext()
         BFG_PRINT("Memory allocation failure!\n");
         return NULL;
     }
-    status = bfgInitStack(&context->stack);
+    status = bfgInitStack((bfg_stack)&context->stack);
     if( status != BFG_SUCCESS)
     {
         free(context);

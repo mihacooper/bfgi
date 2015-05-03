@@ -1,5 +1,4 @@
-#include "bfg_program.h"
-#include "bfg_parser.h"
+#include "bfg_internal.h"
 
 bfg_status bfgLoadProgramCode(bfg_context context, bfg_char** code, bfg_size cols, bfg_size rows, bfg_mem_type mem)
 {
@@ -56,14 +55,14 @@ bfg_status bfgExecuteProgram(bfg_context context)
             *status = BFG_FAILURE;
             break;
         }
-        bfg_kernel_t cmd = parser(context, ch_cmd);
-        if(cmd.func == NULL)
+        bfg_kernel_t* cmd = (bfg_kernel_t*)parser(context, ch_cmd);
+        if(cmd->func == NULL)
         {
             BFG_PRINT("Unsupported command %c\n", ch_cmd);
             *status = BFG_UNSUPPORTED_CMD;
             break;
         }
-        *status = cmd.func(context, cmd.mem, cmd.data_size);
+        *status = cmd->func(context, cmd->mem, cmd->data_size);
     }while(*status == BFG_SUCCESS);
 
     return *status;

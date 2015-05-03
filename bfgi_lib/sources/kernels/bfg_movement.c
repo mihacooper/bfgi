@@ -1,4 +1,4 @@
-#include "bfg_parser.h"
+#include "bfg_internal.h"
 
 static bfg_status cmdMoveUp(bfg_context context, void* data, bfg_size size)
 {
