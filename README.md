@@ -9,10 +9,10 @@
  * Not supported yet
 
 ## Modules
-### BFGI - befunge interpreter
+#### BFGI - befunge interpreter
  * Is just a sample program yet
  
-### BFGL - befunge interpretation library
+#### BFGL - befunge interpretation library
  * Library provides inteface for interpretation of Befunge
  * Suppoted Befunge commands(see [Befunge-93](https://en.wikipedia.org/wiki/Befunge)):
   * Management: < > ^ v @
