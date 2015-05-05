@@ -59,7 +59,7 @@ static bfg_kernel SubParser(bfg_context context, bfg_char ch_cmd)
         data.type = BFG_DATA_SIMPLE;
         data.mem  = &lnum->number;
         data.data_size = sizeof(bfg_int);
-        bfgPushStack(&((bfg_context_t*)context)->stack, &data);
+        bfgPushStack((bfg_stack)&((bfg_context_t*)context)->stack, &data);
         lnum->degree = 0;
         lnum->number = 0;
         ((bfg_context_t*)context)->parser.parse_func = ((bfg_context_t*)context)->parser.def_parse_func;

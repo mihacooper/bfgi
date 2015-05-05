@@ -1,6 +1,11 @@
 #ifndef __BFGL_H__
 #define __BFGL_H__
 
+
+#ifdef __cplusplus
+extern "C"{
+#endif
+
 typedef unsigned int  bfg_size;
 typedef unsigned char bfg_char;
 typedef          int  bfg_int;
@@ -72,5 +77,9 @@ typedef struct
     bfg_kernel_mem_t mem_deinit;
     bfg_size         mem_size;
 }bfg_kernel_desc_t;
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //__BFGL_H__

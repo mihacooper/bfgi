@@ -9,6 +9,13 @@ extern bfg_kernel_desc_t empty_desc;
 extern bfg_kernel_desc_t number_desc;
 extern bfg_kernel_desc_t print_num_desc;
 extern bfg_kernel_desc_t print_char_desc;
+extern bfg_kernel_desc_t add_desc;
+extern bfg_kernel_desc_t sub_desc;
+extern bfg_kernel_desc_t mul_desc;
+extern bfg_kernel_desc_t div_desc;
+extern bfg_kernel_desc_t mod_desc;
+extern bfg_kernel_desc_t lt_desc;
+extern bfg_kernel_desc_t not_desc;
 
 
 static bfg_kernel_desc_t* target_kernels[] =
@@ -22,6 +29,13 @@ static bfg_kernel_desc_t* target_kernels[] =
     &number_desc,
     &print_num_desc,
     &print_char_desc,
+    &add_desc,
+    &sub_desc,
+    &mul_desc,
+    &div_desc,
+    &mod_desc,
+    &lt_desc,
+    &not_desc,
 };
 
 bfg_kernel bfgParseCommand(bfg_context context, bfg_char ch_cmd)
