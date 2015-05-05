@@ -18,6 +18,8 @@
   * Management: < > ^ v @
   * Input: 0-9(numbers only yet)
   * Print: . ,
+  * Arithmetic: + - * / % 
+  * Logical: ! ` 
 
 ## Extensions
  * Entering a long numbers:
