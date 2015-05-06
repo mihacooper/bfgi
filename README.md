@@ -18,10 +18,12 @@
   * Management: < > ^ v @
   * Input: 0-9(numbers only yet)
   * Print: . ,
+  * Arithmetic: + - * / % 
+  * Logical: ! ` 
 
 ## Extensions
  * Entering a long numbers:
   * Entered numbers should be splitted by spaces or other commands:
-    * > 123 123 @ - enters two numbers(123 and 123)
+    * @ 123 123 < - enters two numbers(123 and 123)
     * > 1 2 3 @ - enters three numbers(1,2,3)
     * > 1.2.3.@ - enters and prints three numbers(1,2,3)
