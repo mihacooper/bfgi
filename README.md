@@ -10,16 +10,17 @@
 
 ## Modules
 #### BFGI - befunge interpreter
- * Is just a sample program yet
+ * Simple realisation, it can execute file
  
 #### BFGL - befunge interpretation library
  * Library provides inteface for interpretation of Befunge
  * Suppoted Befunge commands(see [Befunge-93](https://en.wikipedia.org/wiki/Befunge)):
-  * Management: < > ^ v @
-  * Input: 0-9(numbers only yet)
-  * Print: . ,
-  * Arithmetic: + - * / % 
-  * Logical: ! ` 
+  * Management: **< > ^ v @ _ | ? #**
+  * Stack: **: \ &**
+  * Input: **0-9(numbers only yet)**
+  * Print: **. ,**
+  * Arithmetic: **+ - * / %**
+  * Logical: **! `** 
 
 ## Extensions
  * Entering a long numbers:
