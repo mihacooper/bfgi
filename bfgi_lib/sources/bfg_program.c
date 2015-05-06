@@ -58,7 +58,7 @@ bfg_status bfgExecuteProgram(bfg_context context)
         bfg_kernel_t* cmd = (bfg_kernel_t*)parser(context, ch_cmd);
         if(cmd->func == NULL)
         {
-            BFG_PRINT("Unsupported command %c\n", ch_cmd);
+            BFG_PRINT("Unsupported command \'%c\'\n", ch_cmd);
             *status = BFG_UNSUPPORTED_CMD;
             break;
         }

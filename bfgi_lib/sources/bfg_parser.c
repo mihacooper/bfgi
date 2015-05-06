@@ -16,6 +16,13 @@ extern bfg_kernel_desc_t div_desc;
 extern bfg_kernel_desc_t mod_desc;
 extern bfg_kernel_desc_t lt_desc;
 extern bfg_kernel_desc_t not_desc;
+extern bfg_kernel_desc_t copy_desc;
+extern bfg_kernel_desc_t swap_desc;
+extern bfg_kernel_desc_t remove_desc;
+extern bfg_kernel_desc_t left_or_right_desc;
+extern bfg_kernel_desc_t up_or_down_desc;
+extern bfg_kernel_desc_t random_move_desc;
+extern bfg_kernel_desc_t jump_desc;
 
 
 static bfg_kernel_desc_t* target_kernels[] =
@@ -36,6 +43,13 @@ static bfg_kernel_desc_t* target_kernels[] =
     &mod_desc,
     &lt_desc,
     &not_desc,
+    &copy_desc,
+    &swap_desc,
+    &remove_desc,
+    &left_or_right_desc,
+    &up_or_down_desc,
+    &random_move_desc,
+    &jump_desc,
 };
 
 bfg_kernel bfgParseCommand(bfg_context context, bfg_char ch_cmd)

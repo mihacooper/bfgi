@@ -22,18 +22,18 @@ typedef enum
 
 typedef enum
 {
-    BFG_SUCCESS = 0,
-    BFG_FAILURE,
-    BFG_EXE_DONE,
-    BFG_NULLREF,
-    BFG_FULLSTACK,
-    BFG_LEAVE_FIELD,
-    BFG_UNSUPPORTED_TYPE,
-    BFG_UNSUPPORTED_CMD,
-    BFG_WRONG_MEM_SIZE,
-    BFG_WRONG_DATA_TYPE,
-    BFG_STACK_IS_EMPTY,
-    BFG_PRINT_CHAR_ERROR,
+    BFG_SUCCESS          = 0,
+    BFG_FAILURE          = 1,
+    BFG_EXE_DONE         = 2,
+    BFG_NULLREF          = 3,
+    BFG_FULLSTACK        = 4,
+    BFG_LEAVE_FIELD      = 5,
+    BFG_UNSUPPORTED_TYPE = 6,
+    BFG_UNSUPPORTED_CMD  = 7,
+    BFG_WRONG_MEM_SIZE   = 8,
+    BFG_WRONG_DATA_TYPE  = 9,
+    BFG_STACK_IS_EMPTY   = 10,
+    BFG_PRINT_CHAR_ERROR = 11,
 }bfg_status;
 
 typedef enum

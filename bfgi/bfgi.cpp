@@ -34,7 +34,13 @@ int main(int argc, char* argv[])
 
     bfg_context context = bfgCreateContext();
     bfgLoadProgramCode(context, code, cols, rows, BFG_COPY);
-    bfgExecuteProgram(context);
+    printf("Start\n");
+    bfg_status status = bfgExecuteProgram(context);
+    printf("\nFinish\n");
+    if(status != BFG_EXE_DONE)
+    {
+        printf("\nStatus: %d\n", status);
+    }
     bfgReleaseContext(&context);
     return 0;
 }

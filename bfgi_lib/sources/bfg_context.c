@@ -34,7 +34,7 @@ bfg_status  bfgReleaseContext(bfg_context* context)
     BFG_CHECK_NULL(context);
     BFG_CHECK_NULL(*context);
 
-    bfgReleaseStack(&((bfg_context_t*)*context)->stack);
+    bfgReleaseStack((bfg_stack)&((bfg_context_t*)*context)->stack);
     bfgReleaseParser(*context);
     free(*context);
     return BFG_SUCCESS;
